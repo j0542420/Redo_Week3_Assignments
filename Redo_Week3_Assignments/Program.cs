@@ -94,23 +94,137 @@ namespace Redo_Week3_Assignments
         }
         static void Exercise2()
         {
-            // code for exercise 2
-            Console.WriteLine("This is Exercise 2");
-            // title for the calculator application
-            Console.WriteLine("Calculator Application");
-            // asking the user for input of first number 
+            while (true)
+            {
+                // code for exercise 2
+                Console.WriteLine("This is Exercise 2");
+                // title for the calculator application
+                Console.WriteLine("Calculator Application");
+
+                // asking the user for input of first number 
+                Console.WriteLine("What is the first number: ");
+                // user inputs their first number
+                double firstNumber = Convert.ToDouble(Console.ReadLine());
+
+                // asking the user for input of second number
+                Console.WriteLine("What is the second number: ");
+                // user inputs their second number
+                double secondNumber = Convert.ToDouble(Console.ReadLine());
+
+                // asking the user for input of the operation
+                Console.WriteLine("Select an operation");
+                Console.WriteLine("1 - Addition");
+                Console.WriteLine("2 - Subtraction");
+                Console.WriteLine("3 - Multiplication");
+                Console.WriteLine("4 - Division");
+                // user inputs their operation
+                int choice = Convert.ToInt32(Console.ReadLine());
+
+                // switch statement to determine which operation to perform
+                switch (choice) 
+                {
+                    case 1:
+                        // addition
+                        Console.WriteLine("The result of Addition is : " + (firstNumber + secondNumber));
+                        break;
+                    case 2:
+                        // subtraction
+                        Console.WriteLine("The result of Subtraction is : " + (firstNumber - secondNumber));
+                        break;
+                    case 3:
+                        // multiplication
+                        Console.WriteLine("The result of Multiplication is : " + (firstNumber * secondNumber));
+                        break;
+                    case 4:
+                        // division
+                        if (secondNumber != 0)
+                        {
+                            Console.WriteLine("The result of Division is : " + (firstNumber / secondNumber));
+                        }
+                        else
+                        {
+                            Console.WriteLine("Cannot divide by zero");
+                        }
+                        break;
+                }
+
+            }
         }
         static void Exercise3()
         {
             // code for exercise 3
             Console.WriteLine("This is Exercise 3");
-            // add your code here
-        }
-        static void Exercise4()
+            // counting the number of vowels in a string, Vowels are a, e, i, o, u
+            Console.WriteLine("Please enter a string: ");
+            // user inputs their string
+            string input = Console.ReadLine();
+
+            // counting the number of vowels in the string
+            int count = 0;
+            
+            }
+            static void Exercise4()
         {
             // code for exercise 4
             Console.WriteLine("This is Exercise 4");
-            // add your code here
+            // using while to loop through the menu
+            while (true)
+            {
+                // the original balance of the ATM
+                double balance = 1000;
+
+                // Shows the menu for the ATM
+                Console.WriteLine("ATM Menu");
+                Console.WriteLine("1. Check Balance");
+                Console.WriteLine("2. Deposit");
+                Console.WriteLine("3. Withdraw");
+                Console.WriteLine("4. Exit");
+                // user inputs their choice
+                int choice = Convert.ToInt32(Console.ReadLine());
+
+                // switch statement to determine which operation to perform
+                switch (choice)
+                {
+                    // user chooses to check balance
+                    case 1:
+                        Console.WriteLine("Your balance is: " + balance);
+                        break;
+                    // user chooses to deposit
+                    case 2:
+                        // asking the user for input of deposit amount
+                        Console.WriteLine("Enter the amount to deposit: ");
+                        // user inputs their deposit amount
+                        double deposit = Convert.ToDouble(Console.ReadLine());
+
+                        // adding the deposit amount to the balance
+                        balance += deposit;
+                        Console.WriteLine("Deposit successful.");
+                        break;
+                    // user chooses to withdraw
+                    case 3:
+                        // asking the user for input of withdraw amount
+                        Console.WriteLine("Enter the amount to withdraw: ");
+                        // user inputs their withdraw amount
+                        double withdraw = Convert.ToDouble(Console.ReadLine());
+                        // checking if the withdraw amount is less than or equal to the balance
+                        if (withdraw <= balance)
+                        {
+                            // subtracting the withdraw amount from the balance
+                            balance -= withdraw;
+                            Console.WriteLine("Withdraw successful.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Insufficient funds.");
+                        }
+                        break;
+                    // user chooses to exit
+                    case 4:
+                        Console.WriteLine("Exiting ATM.");
+                        // exit the program
+                        return;
+                }
+            }
         }
     }
 }
