@@ -14,12 +14,16 @@ namespace Redo_Week3_Assignments
             while (true)
             {
                 // display the menu
-                Console.WriteLine("Please enter a number between 1 and 4 to get the Excercise you want to see, 5 will exit out:");
+                Console.WriteLine("Please enter a number between 1 and 4 to get the Exercise you want to see, 5 will exit out:");
                 Console.WriteLine("1. Exercise 1");
                 Console.WriteLine("2. Exercise 2");
                 Console.WriteLine("3. Exercise 3");
                 Console.WriteLine("4. Exercise 4");
                 Console.WriteLine("5. Exit");
+
+                // space between the menu and the user input
+                Console.WriteLine();
+
                 // user inputs their choice
                 int choice = Convert.ToInt32(Console.ReadLine());
                 //user input uses a switch statement to determine which exercise to run
@@ -29,21 +33,29 @@ namespace Redo_Week3_Assignments
                         Console.WriteLine("You have chosen Exercise 1");
                         // call the method for exercise 1
                         Exercise1();
+                        // space between the menu and the user input
+                        Console.WriteLine();
                         break;
                     case 2:
                         Console.WriteLine("You have chosen Exercise 2");
                         // call the method for exercise 1
                         Exercise2();
+                        // space between the menu and the user input
+                        Console.WriteLine();
                         break;
                     case 3:
                         Console.WriteLine("You have chosen Exercise 3");
                         // call the method for exercise 1
                         Exercise3();
+                        // space between the menu and the user input
+                        Console.WriteLine();
                         break;
                     case 4:
                         Console.WriteLine("You have chosen Exercise 4");
                         // call the method for exercise 1
                         Exercise4();
+                        // space between the menu and the user input
+                        Console.WriteLine();
                         break;
                     case 5:
                         Console.WriteLine("You have chosen to exit");
@@ -117,6 +129,7 @@ namespace Redo_Week3_Assignments
                 Console.WriteLine("2 - Subtraction");
                 Console.WriteLine("3 - Multiplication");
                 Console.WriteLine("4 - Division");
+                Console.WriteLine("5 - Exit");
                 // user inputs their operation
                 int choice = Convert.ToInt32(Console.ReadLine());
 
@@ -146,6 +159,10 @@ namespace Redo_Week3_Assignments
                             Console.WriteLine("Cannot divide by zero");
                         }
                         break;
+                    case 5:
+                        // exit the program
+                        Console.WriteLine("Exiting Calculator Application");
+                        return;
                 }
 
             }
@@ -161,17 +178,38 @@ namespace Redo_Week3_Assignments
 
             // counting the number of vowels in the string
             int count = 0;
-            
+
+            // string to hold the vowels
+            string vowels = "aeiou";
+
+            // loop through each character in the string
+            foreach (char c in input.ToLower())
+            {
+                // check if the character is a vowel
+                if (vowels.Contains(c))
+                {
+                    count++;
+                }
             }
-            static void Exercise4()
+
+            // display the number of vowels in the string
+            Console.WriteLine("The number of vowels in the string is: " + count);
+
+        }
+        static void Exercise4()
         {
             // code for exercise 4
             Console.WriteLine("This is Exercise 4");
+
+            // the original balance of the ATM
+            int balance = 1000;
+            int deposit = 0;
+            int withdraw = 0;
+
             // using while to loop through the menu
             while (true)
             {
-                // the original balance of the ATM
-                double balance = 1000;
+
 
                 // Shows the menu for the ATM
                 Console.WriteLine("ATM Menu");
@@ -187,41 +225,54 @@ namespace Redo_Week3_Assignments
                 {
                     // user chooses to check balance
                     case 1:
-                        Console.WriteLine("Your balance is: " + balance);
+                        Console.WriteLine($"Your balance is ${balance}");
+                        // space between the menu and the user input
+                        Console.WriteLine();
                         break;
                     // user chooses to deposit
                     case 2:
                         // asking the user for input of deposit amount
                         Console.WriteLine("Enter the amount to deposit: ");
                         // user inputs their deposit amount
-                        double deposit = Convert.ToDouble(Console.ReadLine());
+                        deposit = Convert.ToInt32(Console.ReadLine());
 
-                        // adding the deposit amount to the balance
-                        balance += deposit;
+                        // shows the user their deposit was successful
                         Console.WriteLine("Deposit successful.");
+
+                        // updating the balance
+                        balance = balance + deposit;
+
+                        // space between the menu and the user input
+                        Console.WriteLine();
                         break;
                     // user chooses to withdraw
                     case 3:
                         // asking the user for input of withdraw amount
                         Console.WriteLine("Enter the amount to withdraw: ");
                         // user inputs their withdraw amount
-                        double withdraw = Convert.ToDouble(Console.ReadLine());
+                        withdraw = Convert.ToInt32(Console.ReadLine());
                         // checking if the withdraw amount is less than or equal to the balance
                         if (withdraw <= balance)
                         {
                             // subtracting the withdraw amount from the balance
-                            balance -= withdraw;
+                            balance = balance - withdraw;
                             Console.WriteLine("Withdraw successful.");
                         }
                         else
                         {
                             Console.WriteLine("Insufficient funds.");
                         }
+
+                        // space between the menu and the user input
+                        Console.WriteLine();
                         break;
                     // user chooses to exit
                     case 4:
                         Console.WriteLine("Exiting ATM.");
                         // exit the program
+
+                        // space between the menu and the user input
+                        Console.WriteLine();
                         return;
                 }
             }
